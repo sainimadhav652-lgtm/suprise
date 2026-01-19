@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Tanvi ✨🤍</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #7b1e3c;
+  color: white;
+  overflow: hidden;
+}
+
+/* ---------- COMMON ---------- */
+.page {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+.active {
+  display: flex;
+}
+
+/* ---------- PAGE 1 ---------- */
+#page1 {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#page1 img {
+  max-height: 85vh;
+  max-width: 90vw;
+  object-fit: contain;
+}
+
+.btn {
+  margin-top: 15px;
+  padding: 12px 28px;
+  background: #ff5c93;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ---------- PAGE 2 (TANVI T SHAPE) ---------- */
+#page2 {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.t-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 90px);
+  grid-template-rows: repeat(3, 90px);
+  gap: 18px;
+}
+
+.tile {
+  background: #ff5c93;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* T shape */
+.tile.t { grid-column: 1; grid-row: 1; }
+.tile.a { grid-column: 2; grid-row: 1; }
+.tile.n { grid-column: 3; grid-row: 1; }
+.tile.v { grid-column: 2; grid-row: 2; }
+.tile.i { grid-column: 2; grid-row: 3; }
+
+/* ---------- POPUP ---------- */
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #7b1e3c;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 85vw;
+}
+
+.popup-content img {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 15px;
+}
+
+.popup-content h2 {
+  margin-top: 10px;
+}
+
+.close {
+  margin-top: 10px;
+}
+
+/* ---------- PAGE 3 ---------- */
+#page3 {
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.message-box {
+  background: #ff5c93;
+  padding: 25px;
+  border-radius: 25px;
+  max-width: 600px;
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
+  <img src="11.png">
+  <button class="btn" onclick="goTo(2)">Continue 💖</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+  <div class="t-grid">
+    <div class="tile t" onclick="openPop('t.jpg','Talented')">T</div>
+    <div class="tile a" onclick="openPop('a.jpg','Admirable')">A</div>
+    <div class="tile n" onclick="openPop('n.jpg','Natural')">N</div>
+    <div class="tile v" onclick="openPop('v.jpg','Versatile')">V</div>
+    <div class="tile i" onclick="openPop('i.jpg','Impressive')">I</div>
+  </div>
+
+  <button class="btn" onclick="goTo(3)">Continue ✨</button>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="page">
+  <div class="message-box">
+    <h2>Happy Birthday Tanviiii ✨🤍</h2><br>
+    <p>
+      Happy Birthday to a friend who is very important to me.
+      Thank you for all the memories we have together.
+      Your kindness and warmth make every day better.
+      I hope this year brings you joy, success, and peace in everything you do.
+      Don't ever stop being the beautiful person you are.
+      <br><br>
+      <strong>HAPPY BIRTHDAY TANVIIIII ✨🤍</strong>
+    </p>
+  </div>
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup" onclick="closePop()">
+  <div class="popup-content" onclick="event.stopPropagation()">
+    <img id="popImg">
+    <h2 id="popText"></h2>
+    <button class="btn close" onclick="closePop()">Close</button>
+  </div>
+</div>
+
+<script>
+function goTo(n) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page'+n).classList.add('active');
+}
+
+function openPop(img, text) {
+  document.getElementById('popImg').src = img;
+  document.getElementById('popText').innerText = text;
+  document.getElementById('popup').style.display = 'flex';
+}
+
+function closePop() {
+  document.getElementById('popup').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
